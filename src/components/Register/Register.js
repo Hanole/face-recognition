@@ -4,9 +4,9 @@ class Register extends React.Component {
 	constructor (props){
 	super(props);
 	this.state = {
+		name: '',
 		email: '',
-		password: '',
-		name: ''
+		password: ''
 	}
 }
 
@@ -27,9 +27,9 @@ class Register extends React.Component {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
+				name: this.state.name,
 				email: this.state.email,
-				password: this.state.password,
-				name: this.state.name
+				password: this.state.password
 			})
 		})
 			.then(response => response.json())
@@ -52,19 +52,21 @@ class Register extends React.Component {
 			        <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
 			        <input 
 			        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-			        		type="email" 
-			        		name="email-address"  
-			        		id="email-address"
-			        		onChange={this.onEmailChange} />
+			        		type="text" 
+			        		name="name"  
+			        		id="name"
+			        		onChange={this.onNameChange} />
+
+			        		
 			      </div>
 			      <div className="mt3">
 			        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 			        <input 
 			        		className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-			        		type="text" 
-			        		name="name"  
-			        		id="name"
-			        		onChange={this.onNameChange} />
+			        		type="email" 
+			        		name="email-address"  
+			        		id="email-address"
+			        		onChange={this.onEmailChange} />
 
 			      </div>
 			      <div className="mv3">
